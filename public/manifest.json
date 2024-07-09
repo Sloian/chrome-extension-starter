@@ -1,28 +1,35 @@
 {
-  "name": "Chrome Extension React TS HotReload Template",
-  "description": "A template project for develop extension project using React and typescript, use craco to override the config, and import the hot-reload to improve the development efficiency. Can directly use it to develop.",
-  "version": "1.0",
   "manifest_version": 3,
+
+  "name": "Chrome Extension TypeScript Starter",
+  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "version": "1.0",
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
   "action": {
-    "default_popup": "popup.html",
-    "default_title": "Open the popup"
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
   },
-  "background": {
-    "service_worker": "./static/js/background.js"
-  },
+
   "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
-      "run_at": "document_idle",
-      "js": ["./static/js/content.js"]
-    }
+      {
+          "matches": ["<all_urls>"],
+          "js": ["js/vendor.js", "js/content_script.js"]
+      }
   ],
-  "permissions":[
-    "activeTab"
+
+  "background": {
+    "service_worker": "js/background.js"
+  },
+
+  "permissions": [
+    "storage"
   ],
-  "icons": {
-    "16": "logo192.png",
-    "48": "logo192.png",
-    "128": "logo192.png"
-  }
+
+  "host_permissions": [
+    "<all_urls>"
+  ]
 }
