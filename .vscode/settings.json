@@ -8,5 +8,9 @@
             ],
             "url": "http://json.schemastore.org/chrome-manifest"
         }
-    ]
+    ],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": ["typescipt", "javascript"]
 }
